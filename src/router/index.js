@@ -2,13 +2,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import Inicio from '@/views/Inicio.vue'
 
-import ListaClientes from '@/views/clientes/listaClientes.vue'
+import ListaClientes from '@/views/clientes/ListaClientes.vue'
 import ListadoMarcas from '@/views/marcas/ListadoMarcas.vue'
 import NuevaMarca from '@/views/marcas/NuevaMarca.vue'
 import NuevoModelo from '@/views/marcas/NuevoModelo.vue'
 import AlquilerVehiculo from '@/views/vehiculos/AlquilerVehiculo.vue'
 import ListadoVehiculos from '@/views/vehiculos/ListadoVehiculos.vue'
 import NuevoVehiculo from '@/views/vehiculos/NuevoVehiculo.vue'
+import Modelos from '@/views/marcas/Modelos.vue'
 
 
 const router = createRouter({
@@ -38,6 +39,11 @@ const router = createRouter({
       path: '/marcas/modelo/nuevo',
       name: 'nuevoModelo',
       component: NuevoModelo,
+    },
+    {
+      path: '/marcas/modelo',
+      name: 'modelos',
+      component: Modelos,
     },
     {
       path: '/vehiculos',

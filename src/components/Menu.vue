@@ -1,16 +1,33 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from 'vue-router';
+import '../assets/styles/global.css';
 </script>
 
 <template>
     <nav>
-        <RouterLink to="/">Inicio</RouterLink>
-        <RouterLink to="/clientes">Lista clientes</RouterLink>
-        <RouterLink to="/marcas">Listado marcas</RouterLink>
-        <RouterLink to="/marcas/nueva">Nueva marca</RouterLink>
-        <RouterLink to="/marcas/modelo/nuevo">Nuevo modelo</RouterLink>
-        <RouterLink to="/vehiculos">Listado vehículos</RouterLink>
-        <RouterLink to="/vehiculos/nuevo">Nuevo vehículo</RouterLink>
-        <RouterLink to="/vehiculos/alquiler">Alquiler vehículo</RouterLink>
+        <div class="opcionMenu">
+            <RouterLink to="/">Inicio</RouterLink>
+        </div>
+        <div class="opcionMenu">
+            <RouterLink to="/marcas">Marcas</RouterLink>
+        </div>
+        <div class="opcionMenuSecundario">
+            <RouterLink to="/marcas/nueva">Nueva marca</RouterLink>
+        </div>
+        <div class="opcionMenuSecundario">
+            <RouterLink to="/marcas/modelo">Lista modelos</RouterLink>
+        </div>
+        <div class="opcionMenuSecundario">
+            <RouterLink to="/marcas/modelo/nuevo">Nuevo modelo</RouterLink>
+        </div>
+        <div class="opcionMenu">
+            <RouterLink to="/vehiculos">Vehículos</RouterLink>
+        </div>
+        <div class="opcionMenuSecundario">
+            <RouterLink to="/vehiculos/nuevo">Nuevo vehículo</RouterLink>
+        </div>
+        <div class="opcionMenuSecundario">
+            <RouterLink to="/vehiculos/alquiler">Alquiler vehículo</RouterLink>
+        </div>
     </nav>
 </template>
