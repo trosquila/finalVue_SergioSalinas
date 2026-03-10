@@ -5,7 +5,9 @@ import { onBeforeMount, ref } from 'vue';
 
 const listaPaises = ref(null);
 const datosForm = ref({
-
+    nombre:null,
+    origen:null,
+    anioFundacion:null
 })
 onBeforeMount(async () => {
     listaPaises.value = await getPaises();
@@ -14,9 +16,15 @@ onBeforeMount(async () => {
 })
 
 function guardarMarca() {
-    const datosAguardar = {...datosForm};
+    const datosAguardar = {...datosForm.value};
     guardarNuevaMarca(datosAguardar);
+    datosForm.value = {
+        nombre:null,
+        origen:null,
+        anioFundacion:null
+    }
 }
+
 </script>
 <template>
     <section class="contenedor">
@@ -24,15 +32,15 @@ function guardarMarca() {
         <form action="">
             <div>
                 <label for="">Nombre de la marca</label>
-                <input type="text" name="nombre" id="">
+                <input type="text" name="nombre" id="" v-model="datosForm.nombre">
             </div>
             <div>
                 <label for="">Año de fundación</label>
-                <input type="date" name="fechaFundacion" id="">
+                <input type="number" min="1800" placeholder="fechaFundacion" v-model="datosForm.origen" />   
             </div>
             <div>
                 <label for="">Pais de fundación</label>
-                <select name="pais" id="">
+                <select name="pais" id="" v-model="datosForm.anioFundacion">
                     <option v-for="(pais, index) in listaPaises" :key="index" :value="pais">{{pais}}</option>
                 </select>
             </div>
