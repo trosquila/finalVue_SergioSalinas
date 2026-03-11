@@ -10,7 +10,25 @@
       "id": "5106",
       "nombre": "Hyundai",
       "origen": "Corea del Sur",
-      "anioFundacion": 1945
+      "anioFundacion": 1947
+    },
+    {
+      "id": "2",
+      "nombre": "Seat",
+      "origen": "España",
+      "anioFundacion": 1950
+    },
+    {
+      "id": "3",
+      "nombre": "BMW",
+      "origen": "Alemania",
+      "anioFundacion": 1916
+    },
+    {
+      "id": "4",
+      "nombre": "Toyota",
+      "origen": "Japón",
+      "anioFundacion": 1937
     }
   ],
   "modelos": [
@@ -19,6 +37,36 @@
       "idMarca": "1",
       "modelo": "Giulia",
       "extraPorModelo": 12
+    },
+    {
+      "id": "2",
+      "idMarca": "5106",
+      "modelo": "Tucson",
+      "extraPorModelo": 10
+    },
+    {
+      "id": "3",
+      "idMarca": "2",
+      "modelo": "Ibiza",
+      "extraPorModelo": 6
+    },
+    {
+      "id": "4",
+      "idMarca": "2",
+      "modelo": "León",
+      "extraPorModelo": 8
+    },
+    {
+      "id": "5",
+      "idMarca": "3",
+      "modelo": "Serie 3",
+      "extraPorModelo": 15
+    },
+    {
+      "id": "6",
+      "idMarca": "4",
+      "modelo": "Corolla",
+      "extraPorModelo": 7
     }
   ],
   "vehiculos": [
@@ -27,6 +75,55 @@
       "idModelo": "1",
       "precioDia": 98,
       "puertas": 4,
+      "sillaInfantil": false
+    },
+    {
+      "id": "2",
+      "idModelo": "2",
+      "precioDia": 82,
+      "puertas": 5,
+      "sillaInfantil": true
+    },
+    {
+      "id": "3",
+      "idModelo": "3",
+      "precioDia": 55,
+      "puertas": 5,
+      "sillaInfantil": false
+    },
+    {
+      "id": "4",
+      "idModelo": "4",
+      "precioDia": 63,
+      "puertas": 5,
+      "sillaInfantil": true
+    },
+    {
+      "id": "5",
+      "idModelo": "5",
+      "precioDia": 110,
+      "puertas": 4,
+      "sillaInfantil": false
+    },
+    {
+      "id": "6",
+      "idModelo": "6",
+      "precioDia": 70,
+      "puertas": 5,
+      "sillaInfantil": true
+    },
+    {
+      "id": "7",
+      "idModelo": "1",
+      "precioDia": 102,
+      "puertas": 4,
+      "sillaInfantil": false
+    },
+    {
+      "id": "8",
+      "idModelo": "3",
+      "precioDia": 58,
+      "puertas": 3,
       "sillaInfantil": false
     }
   ],
@@ -40,6 +137,52 @@
           "idVehiculo": "1",
           "numDias": 4,
           "fechaInic": "12/11/2025"
+        },
+        {
+          "idVehiculo": "3",
+          "numDias": 2,
+          "fechaInic": "03/12/2025"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "nombre": "Lucía Martín",
+      "dni": "12345678Z",
+      "alquileres": [
+        {
+          "idVehiculo": "2",
+          "numDias": 6,
+          "fechaInic": "20/10/2025"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "nombre": "Sergio Salinas",
+      "dni": "23456789X",
+      "alquileres": [
+        {
+          "idVehiculo": "5",
+          "numDias": 3,
+          "fechaInic": "15/01/2026"
+        },
+        {
+          "idVehiculo": "6",
+          "numDias": 5,
+          "fechaInic": "02/02/2026"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "nombre": "Elena García",
+      "dni": "34567890P",
+      "alquileres": [
+        {
+          "idVehiculo": "4",
+          "numDias": 7,
+          "fechaInic": "08/09/2025"
         }
       ]
     }

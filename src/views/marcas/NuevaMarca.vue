@@ -11,8 +11,6 @@ const datosForm = ref({
 })
 onBeforeMount(async () => {
     listaPaises.value = await getPaises();
-    console.log(listaPaises.value);
-    
 })
 
 function guardarMarca() {
