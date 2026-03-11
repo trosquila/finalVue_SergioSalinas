@@ -29,5 +29,8 @@ import '../assets/styles/global.css';
         <div class="opcionMenuSecundario">
             <RouterLink to="/vehiculos/alquiler">Alquiler vehículo</RouterLink>
         </div>
+        <div class="opcionMenu">
+            <RouterLink to="/clientes">Clientes</RouterLink>
+        </div>
     </nav>
 </template>

@@ -85,7 +85,6 @@ export async function obtenerModeloConPrecio() {
         pruertas:obtenerDatConcretoVehiculo('puertas', mod.id, vehiculos),
         sillaInfantil:obtenerDatConcretoVehiculo('sillaInfantil', mod.id, vehiculos),
     }));
-    console.log(modelosConPrecio);
     
     return modelosConPrecio;
 }
@@ -104,4 +103,47 @@ function obtenerDatConcretoVehiculo(elemento, idModelo, listaVehiculos){
         dato = listaVehiculos.find(vehi => vehi.idModelo == idModelo);
         return dato.sillaInfantil;
     }
+}
+
+export async function modelosConPrecioMedio(idMarca) {
+    const modelos = await getModelos();
+    const vehiculos = await getVehiculos();
+    const modelosFiltrados = modelos.filter(mod => mod.idMarca == idMarca);
+    const modelosConMedia = modelosFiltrados.map(mod => ({
+        id:mod.id,
+        modelo:mod.modelo,
+        precioMedioDia:calcularMediaPrecioPorDiaModelo(vehiculos, mod.id),
+        extraPorModelo:mod.extraPorModelo
+    }))
+    console.log(modelosConMedia);
+    
+    return modelosConMedia;
+}
+
+function calcularMediaPrecioPorDiaModelo(vehiculos, idModelo) {
+    const vehiculosFiltrados = vehiculos.filter(vehi => vehi.idModelo === idModelo);
+    const sumaPrecios = vehiculosFiltrados.reduce((acumulado, vehi) => acumulado + vehi.precioDia, 0);
+    
+    return sumaPrecios/vehiculosFiltrados.length;
+}
+
+export async function guardarNuevoExtra(idModelo, precioExtraNuevo) {
+    const consultaModelo = await fetch(`http://localhost:3000/modelos/${idModelo}`);
+    const modeloActual = await consultaModelo.json();
+
+    const modeloActualizado = {
+        id: modeloActual.id,
+        idMarca: modeloActual.idMarca,
+        modelo: modeloActual.modelo,
+        extraPorModelo: precioExtraNuevo
+    };
+    const consulta = await fetch(`http://localhost:3000/modelos/${idModelo}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(modeloActualizado)
+    });
+
+    return await consulta.json();
 }

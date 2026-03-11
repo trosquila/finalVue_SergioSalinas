@@ -2,7 +2,7 @@
 import '../../assets/styles/global.css';
 import {obtenerMarcasPorPrecioMedio} from '../../assets/js/consultas.js';
 import { onBeforeMount, ref } from 'vue';
-import MostrarModelos from '@/components/MostrarModelos.vue';
+import MostrarModelosEnMarcas from '@/components/MostrarModelosEnMarcas.vue';
 
 const listaMarcasOrdenadas = ref(null);
 const idMarcaMostrar = ref(null);
@@ -32,6 +32,6 @@ function mostrarModelos(idMarca) {
                 <td>{{ marca.precioMedio }}</td>
             </tr>
         </table>
-        <MostrarModelos :idMarca="idMarcaMostrar"></MostrarModelos>
+        <MostrarModelosEnMarcas :idMarca="idMarcaMostrar"></MostrarModelosEnMarcas>
     </section>
 </template>

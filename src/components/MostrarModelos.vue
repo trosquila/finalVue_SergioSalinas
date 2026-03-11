@@ -1,27 +1,48 @@
 <script setup>
-import { obtenerModeloConPrecio } from '../assets/js/consultas.js';
-import { onBeforeMount, ref, computed } from 'vue';
+import { modelosConPrecioMedio, guardarNuevoExtra } from '../assets/js/consultas.js';
+import {ref, watch  } from 'vue';
 
 const props = defineProps(['idMarca']);
 
 const listaModelos = ref([]);
-
-onBeforeMount(async () => {
-    listaModelos.value = await obtenerModeloConPrecio();
-});
-
-const listaModelosFiltrados = computed(() => {
-    return listaModelos.value.filter(mod => mod.idMarca === props.idMarca);
-});
+console.log(props.idMarca);
 
 
+watch(
+    () => props.idMarca,
+    async (nuevoIdMarca) => {
+        if (nuevoIdMarca) {
+            listaModelos.value = await modelosConPrecioMedio(nuevoIdMarca);
+            console.log(listaModelos.value);
+            
+            listaModelos.value = listaModelos.value.map(modelos => ({
+                ...modelos,
+                modificarExtra:null
+            }));
+        } else {
+            listaModelos.value = [];
+        }
+    },
+    { immediate: true }
+);
+
+function nuevoExtra(modeloAcambiar) {
+    const precioExtraNuevo = modeloAcambiar.modificarExtra
+    guardarNuevoExtra(modeloAcambiar.id, precioExtraNuevo);
+}
 </script>
-
 <template>
-    <section>
-        <div v-for="modelo in listaModelosFiltrados" :key="modelo.id">
-            <p>{{ modelo.modelo }}</p>
-            <p>{{ modelo.precioDia}}</p>
-        </div>
-    </section>
+    <table v-if="props.idMarca">
+        <tr>
+            <th>Modelo</th>
+            <th>Precio Medio Dia</th>
+            <th>Extra por modelo</th>
+        </tr>
+        <tr v-for="(modelos, index) in listaModelos" :key="index">
+            <td>{{ modelos.modelo }}</td>
+            <td>{{ modelos.precioMedioDia }}</td>
+            <td v-if="modelos.extraPorModelo && modelos.extraPorModelo != 0">{{ modelos.extraPorModelo }}</td>
+            <td v-else><input type="number" name="" id="" @keypress.enter="nuevoExtra(modelos)" v-model="modelos.modificarExtra"></td>
+        </tr>
+    </table>
 </template>
