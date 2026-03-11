@@ -7,6 +7,17 @@ export async function getPaises() {
     return paises;
 }
 
+export async function getMarcas() {
+    const consulta = await fetch('http://localhost:3000/marcas');
+    const resultado = await consulta.json();
+    
+    return resultado;
+}
+
 export async function guardarNuevaMarca(nuevaMarca) {
     await fetch('http://localhost:3000/marcas', {method: 'POST', body: JSON.stringify(nuevaMarca)});
+}
+
+export async function guardarNuevoModelo(nuevoModelo) {
+    await fetch('http://localhost:3000/modelos', {method: 'POST', body: JSON.stringify(nuevoModelo)});
 }

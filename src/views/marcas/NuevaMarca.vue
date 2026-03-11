@@ -18,11 +18,7 @@ onBeforeMount(async () => {
 function guardarMarca() {
     const datosAguardar = {...datosForm.value};
     guardarNuevaMarca(datosAguardar);
-    datosForm.value = {
-        nombre:null,
-        origen:null,
-        anioFundacion:null
-    }
+
 }
 
 </script>
@@ -36,16 +32,16 @@ function guardarMarca() {
             </div>
             <div>
                 <label for="">Año de fundación</label>
-                <input type="number" min="1800" placeholder="fechaFundacion" v-model="datosForm.origen" />   
+                <input type="number" min="1800" placeholder="fechaFundacion" v-model="datosForm.anioFundacion" />   
             </div>
             <div>
                 <label for="">Pais de fundación</label>
-                <select name="pais" id="" v-model="datosForm.anioFundacion">
+                <select name="pais" id="" v-model="datosForm.origen">
                     <option v-for="(pais, index) in listaPaises" :key="index" :value="pais">{{pais}}</option>
                 </select>
             </div>
             <div>
-                <button type="submit" @click.prevent="guardarMarca()">Guardar Nueva Marca</button>
+                <button type="submit" @click="guardarMarca()">Guardar Nueva Marca</button>
             </div>
         </form>
     </section>
