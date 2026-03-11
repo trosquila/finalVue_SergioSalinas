@@ -115,7 +115,6 @@ export async function modelosConPrecioMedio(idMarca) {
         precioMedioDia:calcularMediaPrecioPorDiaModelo(vehiculos, mod.id),
         extraPorModelo:mod.extraPorModelo
     }))
-    console.log(modelosConMedia);
     
     return modelosConMedia;
 }

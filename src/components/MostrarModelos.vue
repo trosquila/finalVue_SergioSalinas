@@ -3,32 +3,33 @@ import { modelosConPrecioMedio, guardarNuevoExtra } from '../assets/js/consultas
 import {ref, watch  } from 'vue';
 
 const props = defineProps(['idMarca']);
-
+const idProps = ref(null);
 const listaModelos = ref([]);
-console.log(props.idMarca);
-
 
 watch(
     () => props.idMarca,
     async (nuevoIdMarca) => {
         if (nuevoIdMarca) {
+            idProps.value = nuevoIdMarca;
             listaModelos.value = await modelosConPrecioMedio(nuevoIdMarca);
-            console.log(listaModelos.value);
-            
             listaModelos.value = listaModelos.value.map(modelos => ({
                 ...modelos,
                 modificarExtra:null
             }));
-        } else {
-            listaModelos.value = [];
         }
     },
     { immediate: true }
 );
 
-function nuevoExtra(modeloAcambiar) {
+async function nuevoExtra(modeloAcambiar) {
     const precioExtraNuevo = modeloAcambiar.modificarExtra
-    guardarNuevoExtra(modeloAcambiar.id, precioExtraNuevo);
+    await guardarNuevoExtra(modeloAcambiar.id, precioExtraNuevo);
+
+    listaModelos.value = await modelosConPrecioMedio(idProps.value);
+    listaModelos.value = listaModelos.value.map(modelos => ({
+        ...modelos,
+        modificarExtra:null
+    }));
 }
 </script>
 <template>
