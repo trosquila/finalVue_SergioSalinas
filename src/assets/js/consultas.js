@@ -35,6 +35,10 @@ export async function getClientes() {
     return resultado;
 }
 
+
+
+
+
 export async function guardarNuevaMarca(nuevaMarca) {
     await fetch('http://localhost:3000/marcas', {method: 'POST', body: JSON.stringify(nuevaMarca)});
 }
@@ -42,6 +46,30 @@ export async function guardarNuevaMarca(nuevaMarca) {
 export async function guardarNuevoModelo(nuevoModelo) {
     await fetch('http://localhost:3000/modelos', {method: 'POST', body: JSON.stringify(nuevoModelo)});
 }
+
+export async function guardarNuevoExtra(idModelo, precioExtraNuevo) {
+    const consultaModelo = await fetch(`http://localhost:3000/modelos/${idModelo}`);
+    const modeloActual = await consultaModelo.json();
+
+    const modeloActualizado = {
+        id: modeloActual.id,
+        idMarca: modeloActual.idMarca,
+        modelo: modeloActual.modelo,
+        extraPorModelo: precioExtraNuevo
+    };
+    const consulta = await fetch(`http://localhost:3000/modelos/${idModelo}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(modeloActualizado)
+    });
+
+    return await consulta.json();
+}
+
+
+
 
 export async function obtenerMarcasPorPrecioMedio() {
     
@@ -76,6 +104,10 @@ function precioMedioMarca(modelos, vehiculos, idMarca) {
     
 }
 
+
+
+
+
 export async function obtenerModeloConPrecio() {
     const modelos = await getModelos();
     const vehiculos = await getVehiculos();
@@ -87,22 +119,6 @@ export async function obtenerModeloConPrecio() {
     }));
     
     return modelosConPrecio;
-}
-
-function obtenerDatConcretoVehiculo(elemento, idModelo, listaVehiculos){
-    let dato = null;
-    
-    if(elemento === 'precioDia'){
-        dato = listaVehiculos.find(vehi => vehi.idModelo == idModelo);
-        
-        return dato.precioDia;
-    }else if (elemento === 'puertas'){
-        dato = listaVehiculos.find(vehi => vehi.idModelo == idModelo);
-        return dato.puertas;
-    }else if (elemento === 'sillaInfantil'){
-        dato = listaVehiculos.find(vehi => vehi.idModelo == idModelo);
-        return dato.sillaInfantil;
-    }
 }
 
 export async function modelosConPrecioMedio(idMarca) {
@@ -126,23 +142,29 @@ function calcularMediaPrecioPorDiaModelo(vehiculos, idModelo) {
     return sumaPrecios/vehiculosFiltrados.length;
 }
 
-export async function guardarNuevoExtra(idModelo, precioExtraNuevo) {
-    const consultaModelo = await fetch(`http://localhost:3000/modelos/${idModelo}`);
-    const modeloActual = await consultaModelo.json();
+export async function modeloDeMarcaConcreta(marca) {
+    const listaModelos = await getModelos();
 
-    const modeloActualizado = {
-        id: modeloActual.id,
-        idMarca: modeloActual.idMarca,
-        modelo: modeloActual.modelo,
-        extraPorModelo: precioExtraNuevo
-    };
-    const consulta = await fetch(`http://localhost:3000/modelos/${idModelo}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(modeloActualizado)
-    });
+    const modelosFiltrados = listaModelos.filter(mod => mod.idMarca == marca);
+    
+    return modelosFiltrados;
 
-    return await consulta.json();
+}
+
+
+
+function obtenerDatConcretoVehiculo(elemento, idModelo, listaVehiculos){
+    let dato = null;
+    
+    if(elemento === 'precioDia'){
+        dato = listaVehiculos.find(vehi => vehi.idModelo == idModelo);
+        
+        return dato.precioDia;
+    }else if (elemento === 'puertas'){
+        dato = listaVehiculos.find(vehi => vehi.idModelo == idModelo);
+        return dato.puertas;
+    }else if (elemento === 'sillaInfantil'){
+        dato = listaVehiculos.find(vehi => vehi.idModelo == idModelo);
+        return dato.sillaInfantil;
+    }
 }
