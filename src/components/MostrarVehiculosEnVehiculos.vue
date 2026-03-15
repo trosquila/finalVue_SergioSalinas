@@ -1,10 +1,13 @@
 <script setup>
 import { obtenerVehiculosConClientes } from '../assets/js/consultas.js';
 import { onBeforeMount, ref, watch } from 'vue';
+import FormularioNuevoVehiculo from './FormularioNuevoVehiculo.vue';
 
 const props = defineProps(['marca', 'modelo']);
 
 const listaVehiculos = ref([]);
+
+const verFormNuevoVehi = ref(false);
 
 onBeforeMount(async () => {
     await cargarVehiculos();
@@ -28,7 +31,9 @@ async function cargarVehiculos() {
     listaVehiculos.value = await obtenerVehiculosConClientes(props.marca, props.modelo);
 }
 
-
+function crearNuevoVehiculo() {
+    verFormNuevoVehi.value?verFormNuevoVehi.value=false:verFormNuevoVehi.value=true;
+}
 </script>
 
 <template>
@@ -38,7 +43,7 @@ async function cargarVehiculos() {
         </div>
 
         <div v-for="vehiculo in listaVehiculos" :key="vehiculo.id">
-            <h3>{{ vehiculo.modelo }} - {{ vehiculo.precioDia }} €/día</h3>
+            <h4>{{ vehiculo.modelo }} - {{ vehiculo.precioDia }} €/día</h4>
 
             <ul v-if="vehiculo.clientes.length > 0">
                 <li v-for="cliente in vehiculo.clientes" :key="cliente.id">
@@ -49,6 +54,10 @@ async function cargarVehiculos() {
             <p v-else>No lo ha alquilado ningún cliente</p>
         </div>
 
-        <button>Nuevo Vehículo</button>
+        <button v-show="verFormNuevoVehi === false" @click="crearNuevoVehiculo()">Nuevo Vehículo</button>
+        <button v-show="verFormNuevoVehi === true"  @click="crearNuevoVehiculo()">Cancelar</button>
+        <div v-show="verFormNuevoVehi">
+            <FormularioNuevoVehiculo :marca="props.marca" :modelo="props.modelo"></FormularioNuevoVehiculo>
+        </div>
     </section>
 </template>

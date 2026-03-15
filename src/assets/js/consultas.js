@@ -68,6 +68,15 @@ export async function guardarNuevoExtra(idModelo, precioExtraNuevo) {
     return await consulta.json();
 }
 
+export async function guardarNuevoVehiculo(nuevoVehiculo) {
+    await fetch('http://localhost:3000/vehiculos', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(nuevoVehiculo)
+    });
+}
 
 
 

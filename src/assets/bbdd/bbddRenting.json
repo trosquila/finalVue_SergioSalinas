@@ -125,6 +125,13 @@
       "precioDia": 58,
       "puertas": 3,
       "sillaInfantil": false
+    },
+    {
+      "id": "f7a8",
+      "idModelo": "1",
+      "precioDia": 67,
+      "puertas": 222,
+      "sillaInfantil": true
     }
   ],
   "clientes": [
