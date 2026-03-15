@@ -1,4 +1,5 @@
 <script setup>
+import MostrarVehiculosEnVehiculos from '@/components/MostrarVehiculosEnVehiculos.vue';
 import { getMarcas, modeloDeMarcaConcreta } from '../../assets/js/consultas.js';
 import { onBeforeMount, ref } from 'vue';
 
@@ -38,6 +39,6 @@ async function elegirModelos() {
                 </select>    
             </div>
         </div>
+        <MostrarVehiculosEnVehiculos :marca="marcaSeleccionada" :modelo="modeloSeleccionado"></MostrarVehiculosEnVehiculos>
     </section>
-    
 </template>

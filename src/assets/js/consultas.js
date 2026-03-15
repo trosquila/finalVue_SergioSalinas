@@ -168,3 +168,43 @@ function obtenerDatConcretoVehiculo(elemento, idModelo, listaVehiculos){
         return dato.sillaInfantil;
     }
 }
+
+export async function obtenerVehiculosConClientes(marca, modelo) {
+    const listaModelos = await getModelos();
+    const listaVehiculos = await getVehiculos();
+    const listaClientes = await getClientes();
+
+    let modelosFiltrados = [];
+    let vehiculosFiltrados = [];
+
+    if (modelo) {
+        modelosFiltrados = listaModelos.filter(mod => mod.id == modelo);
+        vehiculosFiltrados = listaVehiculos.filter(vehi =>
+            modelosFiltrados.some(mod => mod.id == vehi.idModelo)
+        );
+    } else if (marca) {
+        modelosFiltrados = listaModelos.filter(mod => mod.idMarca == marca);
+        vehiculosFiltrados = listaVehiculos.filter(vehi =>
+            modelosFiltrados.some(mod => mod.id == vehi.idModelo)
+        );
+    } else {
+        modelosFiltrados = listaModelos;
+        vehiculosFiltrados = listaVehiculos;
+    }
+
+    const listaVehiculosCompleta = vehiculosFiltrados.map(vehiculo => {
+        const modeloVehiculo = listaModelos.find(mod => mod.id == vehiculo.idModelo);
+
+        const clientesVehiculo = listaClientes.filter(cliente =>
+            cliente.alquileres.some(alq => alq.idVehiculo == vehiculo.id)
+        );
+
+        return {
+            ...vehiculo,
+            modelo: modeloVehiculo.modelo,
+            clientes: clientesVehiculo
+        };
+    });
+
+    return listaVehiculosCompleta;
+}
