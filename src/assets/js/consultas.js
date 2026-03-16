@@ -78,6 +78,16 @@ export async function guardarNuevoVehiculo(nuevoVehiculo) {
     });
 }
 
+export async function guardarNuevoAlquiler(nuevoAlquiler) {
+    await fetch('http://localhost:3000/alquileres', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(nuevoAlquiler)
+    });
+}
+
 
 
 export async function obtenerMarcasPorPrecioMedio() {

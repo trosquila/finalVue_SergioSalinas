@@ -16,6 +16,7 @@ onBeforeMount(async () => {
 async function elegirModelos() {
     const marca = marcaSeleccionada.value;
     listaModelos.value = await modeloDeMarcaConcreta(marca);
+    modeloSeleccionado.value = null;
     
 }
 </script>

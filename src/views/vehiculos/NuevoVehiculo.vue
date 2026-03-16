@@ -1,3 +1,12 @@
+<script setup>
+import FormularioNuevoVehiculo from '@/components/FormularioNuevoVehiculo.vue';
+
+
+</script>
 <template>
-<h2>Nuevo Vehiculo</h2>
+    <section>
+        <h2>Nuevo Vehiculo</h2>
+        <FormularioNuevoVehiculo></FormularioNuevoVehiculo>
+    </section>
+
 </template>
