@@ -54,8 +54,8 @@ function crearNuevoVehiculo() {
             <p v-else>No lo ha alquilado ningún cliente</p>
         </div>
 
-        <button v-show="verFormNuevoVehi === false" @click="crearNuevoVehiculo()">Nuevo Vehículo</button>
-        <button v-show="verFormNuevoVehi === true"  @click="crearNuevoVehiculo()">Cancelar</button>
+        <button class="btnPrincipal" v-show="verFormNuevoVehi === false" @click="crearNuevoVehiculo()">Nuevo Vehículo</button>
+        <button class="btnSecundario" v-show="verFormNuevoVehi === true"  @click="crearNuevoVehiculo()">Cancelar</button>
         <div v-show="verFormNuevoVehi">
             <FormularioNuevoVehiculo :marca="props.marca" :modelo="props.modelo"></FormularioNuevoVehiculo>
         </div>

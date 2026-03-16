@@ -128,7 +128,7 @@ async function alquilarVehiculo() {
                     </select>
                 </div>
 
-                <button :disabled="!marcaSeleccionada || !datosForm.idModelo" @click.prevent="mostrarVehiculos">
+                <button class="btnPrincipal" :disabled="!marcaSeleccionada || !datosForm.idModelo" @click.prevent="mostrarVehiculos">
                     Mostrar Vehículos
                 </button>
             </div>
@@ -162,18 +162,16 @@ async function alquilarVehiculo() {
                     <input type="date" v-model="datosForm.fechaInicio">
                 </div>
 
-                <button @click="alquilarVehiculo">
-                    Alquilar
-                </button>
+                <button class="btnPrincipal" @click="alquilarVehiculo">Alquilar</button>
             </div>
 
             <div v-if="alquilerRealizado">
                 <h3>Alquiler realizado</h3>
-                <p><strong>Marca:</strong> {{ alquilerRealizado.marca }}</p>
-                <p><strong>Modelo:</strong> {{ alquilerRealizado.modelo }}</p>
-                <p><strong>Cliente:</strong> {{ alquilerRealizado.nombreCliente }}</p>
-                <p><strong>DNI:</strong> {{ alquilerRealizado.dniCliente }}</p>
-                <p><strong>Precio total:</strong> {{ alquilerRealizado.precioTotal }} €</p>
+                <p><span>Marca:</span> {{ alquilerRealizado.marca }}</p>
+                <p><span>Modelo:</span> {{ alquilerRealizado.modelo }}</p>
+                <p><span>Cliente:</span> {{ alquilerRealizado.nombreCliente }}</p>
+                <p><span>DNI:</span> {{ alquilerRealizado.dniCliente }}</p>
+                <p><span>Precio total:</span> {{ alquilerRealizado.precioTotal }} €</p>
             </div>
         </form>
     </section>

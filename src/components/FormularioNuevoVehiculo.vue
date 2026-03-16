@@ -95,7 +95,7 @@ function nuevoVehiculo() {
                 <input type="checkbox" v-model="datosForm.sillaInfantil">
             </div>
 
-            <button @click.prevent="nuevoVehiculo()">Guardar nuevo vehículo</button>
+            <button class="btnPrincipal" @click.prevent="nuevoVehiculo()">Guardar nuevo vehículo</button>
         </form>
     </section>
 </template>

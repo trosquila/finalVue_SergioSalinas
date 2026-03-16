@@ -39,7 +39,7 @@ function guardarMarca() {
                 </select>
             </div>
             <div>
-                <button type="submit" @click="guardarMarca()">Guardar Nueva Marca</button>
+                <button class="btnPrincipal" type="submit" @click="guardarMarca()">Guardar Nueva Marca</button>
             </div>
         </form>
     </section>

@@ -45,7 +45,7 @@ function guardarModelo() {
                 <label for="">Precio extra</label>
                 <input type="number" name="" id="" v-model="datosForm.extraPorModelo">
             </div>
-            <button type="submit" @click="guardarModelo()">Guardar Modelo</button>
+            <button class="btnPrincipal" type="submit" @click="guardarModelo()">Guardar Modelo</button>
         </form>
     </section>
     
