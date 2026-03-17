@@ -67,6 +67,18 @@
       "idMarca": "4",
       "modelo": "Corolla",
       "extraPorModelo": 7
+    },
+    {
+      "id": "df1c",
+      "idModelo": null,
+      "modelo": null,
+      "extraPorModelo": 0
+    },
+    {
+      "id": "79f1",
+      "idModelo": null,
+      "modelo": null,
+      "extraPorModelo": 0
     }
   ],
   "vehiculos": [

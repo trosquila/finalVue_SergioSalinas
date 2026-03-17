@@ -1,3 +1,5 @@
+import ListadoMarcas from "@/views/marcas/ListadoMarcas.vue";
+
 export async function getPaises() {
     const consulta = await fetch('https://restcountries.com/v3.1/all?fields=translations');
     const resultado = await consulta.json();
@@ -226,4 +228,37 @@ export async function obtenerVehiculosConClientes(marca, modelo) {
     });
 
     return listaVehiculosCompleta;
+}
+
+export async function getVehiculosUsario(idCliente) {
+    const listadoMarcas = await getMarcas();
+    const listaModelos = await getModelos();
+    const listaVehiculos = await getVehiculos();
+    const listaClientes = await getClientes();
+
+    const cliente = listaClientes.find(cli => cli.id == idCliente);
+
+    const listaVehiculosAlquilados = [];
+    
+    cliente.alquileres.forEach(alq => {
+        let datoVehiculo = {
+            marca:null,
+            modelo:null,
+            PrecioTotal:null
+
+        };
+
+        const vehiculo = listaVehiculos.find(veh => veh.id == alq.idVehiculo);
+        const modelo = listaModelos.find(mod => mod.id == vehiculo.idModelo);
+        
+        const marca =  listadoMarcas.find(mar => mar.id == modelo.idMarca);
+        datoVehiculo.marca = marca.nombre;
+        datoVehiculo.modelo = modelo.modelo;
+
+        datoVehiculo.PrecioTotal= (vehiculo.precioDia + modelo.extraPorModelo) * alq.numDias;
+        listaVehiculosAlquilados.push(datoVehiculo);
+    });
+    
+    return listaVehiculosAlquilados;
+    
 }
