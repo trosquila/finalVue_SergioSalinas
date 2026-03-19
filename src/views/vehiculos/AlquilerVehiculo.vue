@@ -105,11 +105,11 @@ async function alquilarVehiculo() {
 </script>
 
 <template>
-    <section>
-        <h2>Alquiler de vehículos</h2>
-        <form action="">
+    <section class="contenedor">
+        <h2 class="tituloSeccion">Alquiler de vehículos</h2>
+        <form action="" class="formElegante">
             <div>
-                <div>
+                <div class="contenidoForm">
                     <label>Marca</label>
                     <select v-model="marcaSeleccionada" @change="elegirModelos">
                         <option :value="null">Selecciona una marca</option>
@@ -119,7 +119,7 @@ async function alquilarVehiculo() {
                     </select>
                 </div>
 
-                <div>
+                <div class="contenidoForm">
                     <label>Modelo</label>
                     <select v-model="datosForm.idModelo">
                         <option v-for="modelo in listaModelos" :key="modelo.id" :value="modelo.id">
@@ -128,13 +128,15 @@ async function alquilarVehiculo() {
                     </select>
                 </div>
 
-                <button class="btnPrincipal" :disabled="!marcaSeleccionada || !datosForm.idModelo" @click.prevent="mostrarVehiculos">
-                    Mostrar Vehículos
-                </button>
+                <div class="accionesForm">
+                    <button class="btnPrincipal" :disabled="!marcaSeleccionada || !datosForm.idModelo" @click.prevent="mostrarVehiculos">
+                        Mostrar Vehículos
+                    </button>
+                </div>
             </div>
 
             <div v-if="mostrarFormulario">
-                <div>
+                <div class="contenidoForm">
                     <label>Vehículo</label>
                     <select v-model="datosForm.idVehiculo">
                         <option v-for="(vehiculo, index) in listaVehiculos" :key="index" :value="vehiculo.id">
@@ -143,7 +145,7 @@ async function alquilarVehiculo() {
                     </select>
                 </div>
 
-                <div>
+                <div class="contenidoForm">
                     <label>Cliente</label>
                     <select v-model="datosForm.idCliente">
                         <option v-for="cliente in listaClientes" :key="cliente.id" :value="cliente.id">
@@ -152,21 +154,23 @@ async function alquilarVehiculo() {
                     </select>
                 </div>
 
-                <div>
+                <div class="contenidoForm">
                     <label>Días</label>
                     <input type="number" min="1" v-model="datosForm.dias">
                 </div>
 
-                <div>
+                <div class="contenidoForm">
                     <label>Fecha inicio</label>
                     <input type="date" v-model="datosForm.fechaInicio">
                 </div>
 
-                <button class="btnPrincipal" @click="alquilarVehiculo">Alquilar</button>
+                <div class="accionesForm">
+                    <button class="btnPrincipal" @click="alquilarVehiculo">Alquilar</button>
+                </div>
             </div>
 
-            <div v-if="alquilerRealizado">
-                <h3>Alquiler realizado</h3>
+            <div v-if="alquilerRealizado" class="listaDatos">
+                <h3 class="tituloSeccion">Alquiler realizado</h3>
                 <p><span>Marca:</span> {{ alquilerRealizado.marca }}</p>
                 <p><span>Modelo:</span> {{ alquilerRealizado.modelo }}</p>
                 <p><span>Cliente:</span> {{ alquilerRealizado.nombreCliente }}</p>

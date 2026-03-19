@@ -4,7 +4,7 @@ import FormularioNuevoVehiculo from '@/components/FormularioNuevoVehiculo.vue';
 
 </script>
 <template>
-    <section>
+    <section class="contenedor">
         <h2>Nuevo Vehiculo</h2>
         <FormularioNuevoVehiculo></FormularioNuevoVehiculo>
     </section>

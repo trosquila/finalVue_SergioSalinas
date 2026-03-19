@@ -90,6 +90,24 @@ export async function guardarNuevoAlquiler(nuevoAlquiler) {
     });
 }
 
+export async function guardarNuevoUsuario(nuevoUsuario) {
+    const usuarioAGuardar = {
+        nombre: nuevoUsuario.nombre,
+        dni: nuevoUsuario.dni,
+        alquileres: nuevoUsuario.alquileres ?? []
+    };
+
+    const consulta = await fetch('http://localhost:3000/clientes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(usuarioAGuardar)
+    });
+
+    return await consulta.json();
+}
+
 
 
 export async function obtenerMarcasPorPrecioMedio() {
@@ -261,4 +279,32 @@ export async function getVehiculosUsario(idCliente) {
     
     return listaVehiculosAlquilados;
     
+}
+
+
+
+export async function modificarUsuario(idUsuario, datosUsuario) {
+    const usuarioActualizado = {
+        nombre: datosUsuario.nombre,
+        dni: datosUsuario.dni,
+        alquileres: datosUsuario.alquileres
+    };
+
+    const consulta = await fetch(`http://localhost:3000/clientes/${idUsuario}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(usuarioActualizado)
+    });
+
+    return await consulta.json();
+}
+
+export async function eliminarUsuario(idUsuario) {
+    const consulta = await fetch(`http://localhost:3000/clientes/${idUsuario}`, {
+        method: 'DELETE'
+    });
+
+    return consulta;
 }

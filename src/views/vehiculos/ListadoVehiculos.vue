@@ -21,7 +21,7 @@ async function elegirModelos() {
 }
 </script>
 <template>
-    <section>
+    <section class="contenedor">
         <h2>Listado vehiculos</h2>
         <div>
             <div>

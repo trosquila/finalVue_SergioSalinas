@@ -61,8 +61,8 @@ function nuevoVehiculo() {
 
 <template>
     <section>
-        <form action="">
-            <div>
+        <form action="" class="formElegante">
+            <div class="contenidoForm">
                 <label for="">Marca</label>
                 <select v-model="marcaSeleccionada" @change="elegirModelos()" :disabled="props.marca">
                     <option v-for="(marca, index) in listaMarcas" :key="index" :value="marca.id">
@@ -71,7 +71,7 @@ function nuevoVehiculo() {
                 </select>
             </div>
 
-            <div>
+            <div class="contenidoForm">
                 <label for="">Modelo</label>
                 <select v-model="datosForm.idModelo" :disabled="props.modelo">
                     <option v-for="(modelo, index) in listaModelos" :key="index" :value="modelo.id">
@@ -80,22 +80,24 @@ function nuevoVehiculo() {
                 </select>
             </div>
 
-            <div>
+            <div class="contenidoForm">
                 <label for="">Precio por día</label>
                 <input type="number" v-model="datosForm.precioDia">
             </div>
 
-            <div>
+            <div class="contenidoForm">
                 <label for="">Número de puertas</label>
                 <input type="number" v-model="datosForm.puertas">
             </div>
 
-            <div>
+            <div class="contenidoForm">
                 <label for="">¿Contiene una silla infantil?</label>
                 <input type="checkbox" v-model="datosForm.sillaInfantil">
             </div>
 
-            <button class="btnPrincipal" @click.prevent="nuevoVehiculo()">Guardar nuevo vehículo</button>
+            <div class="accionesForm">
+                <button class="btnPrincipal" @click.prevent="nuevoVehiculo()">Guardar nuevo vehículo</button>
+            </div>
         </form>
     </section>
 </template>

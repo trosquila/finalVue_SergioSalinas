@@ -28,24 +28,26 @@ function guardarModelo() {
 }
 </script>
 <template>
-    <section>
-        <h2>Nuevo modelo</h2>
-        <form action="" method="post">
-            <div>
+    <section class="contenedor">
+        <h2 class="tituloSeccion">Nuevo modelo</h2>
+        <form action="" method="post" class="formElegante">
+            <div class="contenidoForm">
                 <label for="">Marca</label>
                 <select name="" id="" required v-model="datosForm.idModelo">
                     <option v-for="(marca, index) in listaMarcas" :key="index" :value="marca.id">{{ marca.nombre }}</option>
                 </select>
             </div>
-            <div>
+            <div class="contenidoForm">
                 <label for="">Modelo</label>
                 <input type="text" name="" id="" v-model="datosForm.modelo" required>
             </div>
-            <div>
+            <div class="contenidoForm">
                 <label for="">Precio extra</label>
                 <input type="number" name="" id="" v-model="datosForm.extraPorModelo">
             </div>
-            <button class="btnPrincipal" type="submit" @click="guardarModelo()">Guardar Modelo</button>
+            <div class="accionesForm">
+                <button class="btnPrincipal" type="submit" @click="guardarModelo()">Guardar Modelo</button>
+            </div>
         </form>
     </section>
     

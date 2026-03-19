@@ -12,7 +12,7 @@ onBeforeMount(async () => {
 })
 </script>
 <template>
-    <section>
+    <section class="contenedor">
         <h2>Modelos</h2>
         <div>
             <select name="" id="" v-model="marcaSeleccionada">

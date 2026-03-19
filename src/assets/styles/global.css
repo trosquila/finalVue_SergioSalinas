@@ -26,7 +26,9 @@ nav a{
     text-decoration: none;
     color: white;
 }
-
+.contenedor{
+    margin-top: 5%;
+}
 .opcionMenu{
     padding: 10px 30px;
 }
@@ -97,4 +99,111 @@ th{
 
 td{
     text-align: center;
+}
+
+.tarjeta{
+    background-color: white;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.tituloSeccion{
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 22px;
+    color: rgb(46, 46, 46);
+}
+
+/* FORMULARIOS */
+
+.formElegante{
+    background-color: white;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    min-width: 320px;
+}
+
+.contenidoForm{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.contenidoForm label{
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: rgb(70, 70, 70);
+}
+
+.contenidoForm input,
+.contenidoForm select,
+.contenidoForm textarea{
+    padding: 10px 12px;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 8px;
+    background-color: rgb(252, 252, 252);
+    color: rgb(46, 46, 46);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.contenidoForm input:focus,
+.contenidoForm select:focus,
+.contenidoForm textarea:focus{
+    border-color: rgb(46, 46, 46);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(46, 46, 46, 0.08);
+}
+
+.contenidoForm textarea{
+    resize: vertical;
+    min-height: 90px;
+}
+
+.accionesForm{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.accionesForm button:disabled{
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+
+.listaDatos{
+    background-color: white;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.listaDatos p{
+    margin: 0;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.listaDatos p:last-of-type{
+    border-bottom: none;
+}
+
+.listaDatos p:hover{
+    background-color: rgb(245, 245, 245);
+    transform: translateX(2px);
+}
+
+.listaDatos span{
+    font-weight: 700;
 }

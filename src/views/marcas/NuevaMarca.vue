@@ -22,23 +22,23 @@ function guardarMarca() {
 </script>
 <template>
     <section class="contenedor">
-        <h2>Nueva marca</h2>
-        <form action="">
-            <div>
+        <h2 class="tituloSeccion">Nueva marca</h2>
+        <form action="" class="formElegante">
+            <div class="contenidoForm">
                 <label for="">Nombre de la marca</label>
                 <input type="text" name="nombre" id="" v-model="datosForm.nombre">
             </div>
-            <div>
+            <div class="contenidoForm">
                 <label for="">Año de fundación</label>
                 <input type="number" min="1800" placeholder="fechaFundacion" v-model="datosForm.anioFundacion" />   
             </div>
-            <div>
+            <div class="contenidoForm">
                 <label for="">Pais de fundación</label>
                 <select name="pais" id="" v-model="datosForm.origen">
                     <option v-for="(pais, index) in listaPaises" :key="index" :value="pais">{{pais}}</option>
                 </select>
             </div>
-            <div>
+            <div class="accionesForm">
                 <button class="btnPrincipal" type="submit" @click="guardarMarca()">Guardar Nueva Marca</button>
             </div>
         </form>
