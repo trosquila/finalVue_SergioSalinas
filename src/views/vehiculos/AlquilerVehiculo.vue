@@ -23,6 +23,7 @@ const alquilerRealizado = ref(null);
 
 onBeforeMount(async () => {
     listaMarcas.value = await getMarcas();
+    listaVehiculos.value = await getVehiculos();
 });
 
 async function elegirModelos() {
@@ -45,9 +46,9 @@ async function mostrarVehiculos() {
     );
     listaVehiculos.value = listaVehiculos.value.map(vehi => ({
         id: vehi.id,
+        precioDia: vehi.precioDia,
         modelo: listaModelos.value.find(mod => mod.id == vehi.idModelo).modelo
     }));
-    console.log(listaVehiculos.value);
 
     listaClientes.value = await getClientes();
 
@@ -61,6 +62,10 @@ async function mostrarVehiculos() {
 
 const modeloSeleccionado = computed(() =>
     listaModelos.value.find(modelo => modelo.id == datosForm.value.idModelo)
+);
+
+const vehiculoSeleccionado = computed(() =>
+    listaVehiculos.value.find(vehi => vehi.id == datosForm.value.idVehiculo)
 );
 
 const marcaTexto = computed(() =>
@@ -82,17 +87,17 @@ async function alquilarVehiculo() {
 
     await guardarNuevoAlquiler(nuevoAlquiler);
 
-    const precioBase = modeloSeleccionado.value?.precioDia || 0;
-    const extraModelo = modeloSeleccionado.value?.precioExtra || modeloSeleccionado.value?.extra || 0;
+    const extraModelo = modeloSeleccionado.value.extraPorModelo || 0;
+    const precioBase = vehiculoSeleccionado.value.precioDia || 0;
 
     const precioTotal = (precioBase + extraModelo) * datosForm.value.dias;
 
     alquilerRealizado.value = {
-        marca: marcaTexto.value?.nombre,
-        modelo: modeloSeleccionado.value?.modelo,
-        nombreCliente: clienteSeleccionado.value?.nombre,
-        dniCliente: clienteSeleccionado.value?.dni,
-        precioTotal
+        marca: marcaTexto.value.nombre,
+        modelo: modeloSeleccionado.value.modelo,
+        nombreCliente: clienteSeleccionado.value.nombre,
+        dniCliente: clienteSeleccionado.value.dni,
+        precioTotal:precioTotal
     };
 
     mostrarFormulario.value = false;
@@ -168,15 +173,15 @@ async function alquilarVehiculo() {
                     <button class="btnPrincipal" @click.prevent="alquilarVehiculo">Alquilar</button>
                 </div>
             </div>
-
-            <div v-if="alquilerRealizado" class="listaDatos">
-                <h3 class="tituloSeccion">Alquiler realizado</h3>
-                <p><span>Marca:</span> {{ alquilerRealizado.marca }}</p>
-                <p><span>Modelo:</span> {{ alquilerRealizado.modelo }}</p>
-                <p><span>Cliente:</span> {{ alquilerRealizado.nombreCliente }}</p>
-                <p><span>DNI:</span> {{ alquilerRealizado.dniCliente }}</p>
-                <p><span>Precio total:</span> {{ alquilerRealizado.precioTotal }} €</p>
-            </div>
         </form>
+
+        <div v-if="alquilerRealizado" class="listaDatos">
+            <h3 class="tituloSeccion">Alquiler realizado</h3>
+            <p><span>Marca:</span> {{ alquilerRealizado.marca }}</p>
+            <p><span>Modelo:</span> {{ alquilerRealizado.modelo }}</p>
+            <p><span>Cliente:</span> {{ alquilerRealizado.nombreCliente }}</p>
+            <p><span>DNI:</span> {{ alquilerRealizado.dniCliente }}</p>
+            <p><span>Precio total:</span> {{ alquilerRealizado.precioTotal }} €</p>
+        </div>
     </section>
 </template>

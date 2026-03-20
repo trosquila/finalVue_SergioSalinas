@@ -81,10 +81,10 @@
       "id": "Eb6kQp5_89k"
     },
     {
+      "id": "gH5atHZXtD0",
       "idMarca": "3",
       "modelo": "serie 2",
-      "extraPorModelo": 12,
-      "id": "gH5atHZXtD0"
+      "extraPorModelo": 33
     }
   ],
   "vehiculos": [
@@ -244,6 +244,41 @@
           "idVehiculo": "3",
           "numDias": 2,
           "fechaInic": "03/12/2025"
+        },
+        {
+          "idVehiculo": "7",
+          "numDias": 1,
+          "fechaInic": "2026-03-18"
+        },
+        {
+          "idVehiculo": "7",
+          "numDias": 12,
+          "fechaInic": ""
+        },
+        {
+          "idVehiculo": "2",
+          "numDias": 23,
+          "fechaInic": "2026-03-05"
+        },
+        {
+          "idVehiculo": "1-yY_8Hg4QE",
+          "numDias": 2,
+          "fechaInic": "2026-03-07"
+        },
+        {
+          "idVehiculo": "1-yY_8Hg4QE",
+          "numDias": 2,
+          "fechaInic": "2026-03-07"
+        },
+        {
+          "idVehiculo": "1-yY_8Hg4QE",
+          "numDias": 2,
+          "fechaInic": ""
+        },
+        {
+          "idVehiculo": "1-yY_8Hg4QE",
+          "numDias": 2,
+          "fechaInic": ""
         }
       ]
     },
@@ -256,6 +291,11 @@
           "idVehiculo": "2",
           "numDias": 6,
           "fechaInic": "20/10/2025"
+        },
+        {
+          "idVehiculo": "vpSvC1VMFvY",
+          "numDias": 2,
+          "fechaInic": "2026-03-28"
         }
       ]
     },
@@ -278,6 +318,11 @@
           "idVehiculo": "xth69qTaCAw",
           "numDias": 3,
           "fechaInic": "2026-03-20"
+        },
+        {
+          "idVehiculo": "f7a8",
+          "numDias": 5,
+          "fechaInic": ""
         }
       ]
     },

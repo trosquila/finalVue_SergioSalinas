@@ -131,7 +131,7 @@ export async function obtenerMarcasPorPrecioMedio() {
     }));
     
     const marcasConPrecioOrdenadas = marcasConPrecio.sort(
-        (a, b) => a.precioMedio - b.precioMedio
+        (a, b) => b.precioMedio - a.precioMedio
     );
 
     return marcasConPrecioOrdenadas;
