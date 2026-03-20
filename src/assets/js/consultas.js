@@ -81,12 +81,21 @@ export async function guardarNuevoVehiculo(nuevoVehiculo) {
 }
 
 export async function guardarNuevoAlquiler(nuevoAlquiler) {
-    await fetch('http://localhost:3000/alquileres', {
-        method: 'POST',
+    const consultaCliente = await fetch(`http://localhost:3000/clientes/${nuevoAlquiler.idCliente}`);
+    const cliente = await consultaCliente.json();
+
+    cliente.alquileres.push({
+        idVehiculo: nuevoAlquiler.idVehiculo,
+        numDias: nuevoAlquiler.dias,
+        fechaInic: nuevoAlquiler.fechaInicio
+    });
+
+    await fetch(`http://localhost:3000/clientes/${nuevoAlquiler.idCliente}`, {
+        method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(nuevoAlquiler)
+        body: JSON.stringify({ alquileres: cliente.alquileres })
     });
 }
 

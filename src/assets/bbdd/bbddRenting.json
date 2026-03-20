@@ -29,6 +29,12 @@
       "nombre": "Toyota",
       "origen": "Japón",
       "anioFundacion": 1937
+    },
+    {
+      "nombre": "Madza",
+      "origen": "Japón",
+      "anioFundacion": 1956,
+      "id": "SXL1jncuIOQ"
     }
   ],
   "modelos": [
@@ -69,16 +75,16 @@
       "extraPorModelo": 7
     },
     {
-      "id": "df1c",
-      "idModelo": null,
-      "modelo": null,
-      "extraPorModelo": 0
+      "idMarca": "5106",
+      "modelo": "accent",
+      "extraPorModelo": 34,
+      "id": "Eb6kQp5_89k"
     },
     {
-      "id": "79f1",
-      "idModelo": null,
-      "modelo": null,
-      "extraPorModelo": 0
+      "idMarca": "3",
+      "modelo": "serie 2",
+      "extraPorModelo": 12,
+      "id": "gH5atHZXtD0"
     }
   ],
   "vehiculos": [
@@ -144,6 +150,83 @@
       "precioDia": 67,
       "puertas": 222,
       "sillaInfantil": true
+    },
+    {
+      "idModelo": "1",
+      "precioDia": 12,
+      "puertas": 2,
+      "sillaInfantil": true,
+      "id": "foJfvo70cSg"
+    },
+    {
+      "idModelo": "Eb6kQp5_89k",
+      "precioDia": 12,
+      "puertas": 5,
+      "sillaInfantil": false,
+      "id": "1-yY_8Hg4QE"
+    },
+    {
+      "idModelo": "Eb6kQp5_89k",
+      "precioDia": 23,
+      "puertas": 5,
+      "sillaInfantil": true,
+      "id": "xth69qTaCAw"
+    },
+    {
+      "idModelo": "Eb6kQp5_89k",
+      "precioDia": 2,
+      "puertas": 4,
+      "sillaInfantil": true,
+      "id": "0qQcbilrjzU"
+    },
+    {
+      "idModelo": "1",
+      "precioDia": 12,
+      "puertas": 3,
+      "sillaInfantil": true,
+      "id": "sjQ-0vfSwNY"
+    },
+    {
+      "idModelo": "3",
+      "precioDia": 3,
+      "puertas": 2,
+      "sillaInfantil": true,
+      "id": "lR9GbnsbzXU"
+    },
+    {
+      "idModelo": "4",
+      "precioDia": 23,
+      "puertas": 2,
+      "sillaInfantil": false,
+      "id": "84P1toAE72w"
+    },
+    {
+      "idModelo": "5",
+      "precioDia": 23,
+      "puertas": 3,
+      "sillaInfantil": true,
+      "id": "vpSvC1VMFvY"
+    },
+    {
+      "idModelo": "6",
+      "precioDia": 1,
+      "puertas": 3,
+      "sillaInfantil": true,
+      "id": "PQgfCo0kPJM"
+    },
+    {
+      "idModelo": "2",
+      "precioDia": 23,
+      "puertas": 1,
+      "sillaInfantil": true,
+      "id": "HpSX-UFhsy8"
+    },
+    {
+      "idModelo": "gH5atHZXtD0",
+      "precioDia": 21,
+      "puertas": 3,
+      "sillaInfantil": true,
+      "id": "-TOjD4F6dH4"
     }
   ],
   "clientes": [
@@ -178,7 +261,7 @@
     },
     {
       "id": "3",
-      "nombre": "Sergio Salinas",
+      "nombre": "Sergio Salinas Sierra",
       "dni": "23456789X",
       "alquileres": [
         {
@@ -190,6 +273,11 @@
           "idVehiculo": "6",
           "numDias": 5,
           "fechaInic": "02/02/2026"
+        },
+        {
+          "idVehiculo": "xth69qTaCAw",
+          "numDias": 3,
+          "fechaInic": "2026-03-20"
         }
       ]
     },

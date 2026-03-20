@@ -1,11 +1,11 @@
 <script setup>
 import '../../assets/styles/global.css';
-import { getClientes, guardarNuevoUsuario, modificarUsuario, eliminarUsuario } from '../../assets/js/consultas.js';
-import { onBeforeMount, ref } from 'vue';
-import VehiculosDelUsuario from '@/components/VehiculosDelUsuario.vue';
+import { getClientes, guardarNuevoUsuario, modificarUsuario, eliminarUsuario, getVehiculosUsario } from '../../assets/js/consultas.js';
+import { onBeforeMount, ref, watch } from 'vue';
 
 const listaClientes = ref([]);
 const idCliente = ref(null);
+const listaVehiculos = ref([]);
 
 const datosForm = ref({
     nombre: '',
@@ -18,6 +18,18 @@ const usuarioElegido = ref(false);
 onBeforeMount(async () => {
     listaClientes.value = await getClientes();
 });
+
+watch(
+    () => idCliente.value,
+    async (nuevoIdCliente) => {
+        if (nuevoIdCliente) {
+            listaVehiculos.value = await getVehiculosUsario(nuevoIdCliente);
+        } else {
+            listaVehiculos.value = [];
+        }
+    },
+    { immediate: true }
+);
 
 function mostrarVehiculosDelUser(cliente) {
     idCliente.value = cliente.id;
@@ -89,7 +101,21 @@ async function eliminarCliente() {
             </div>
         </div>
 
-        <VehiculosDelUsuario :idCliente="idCliente"></VehiculosDelUsuario>
+        <section>
+            <h3>Vehiculos alquilados</h3>
+            <div v-if="!idCliente">
+                <p>Selecciona un cliente</p>
+            </div>
+
+            <div v-else-if="listaVehiculos.length === 0">
+                <p>Este cliente no ha alquilado vehículos</p>
+            </div>
+
+            <div v-for="(vehiculo, index) in listaVehiculos" :key="index">
+                <h4>{{ vehiculo.marca }} {{ vehiculo.modelo }}</h4>
+                <p>Precio final pagado: {{ vehiculo.PrecioTotal }} €</p>
+            </div>
+        </section>
 
         <form action="" class="formElegante">
             <div class="contenidoForm">

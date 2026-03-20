@@ -1,20 +1,26 @@
 <script setup>
 import '../../assets/styles/global.css';
-import {obtenerMarcasPorPrecioMedio} from '../../assets/js/consultas.js';
-import { onBeforeMount, ref } from 'vue';
-import MostrarModelosEnMarcas from '@/components/MostrarModelosEnMarcas.vue';
+import {obtenerMarcasPorPrecioMedio, obtenerModeloConPrecio} from '../../assets/js/consultas.js';
+import { onBeforeMount, ref, computed } from 'vue';
 
 const listaMarcasOrdenadas = ref(null);
 const idMarcaMostrar = ref(null);
+const listaModelos = ref([]);
 
 onBeforeMount(async () => {
     listaMarcasOrdenadas.value = await obtenerMarcasPorPrecioMedio();
+    listaModelos.value = await obtenerModeloConPrecio();
 })
 
 function mostrarModelos(idMarca) {
     idMarcaMostrar.value = idMarca;
 }
+
+const listaModelosFiltrados = computed(() => {
+    return listaModelos.value.filter(mod => mod.idMarca === idMarcaMostrar.value);
+});
 </script>
+
 <template>
     <section>
         <h2>Listado marcas</h2>
@@ -32,6 +38,12 @@ function mostrarModelos(idMarca) {
                 <td>{{ marca.precioMedio }}</td>
             </tr>
         </table>
-        <MostrarModelosEnMarcas :idMarca="idMarcaMostrar"></MostrarModelosEnMarcas>
+
+        <section>
+            <div v-for="modelo in listaModelosFiltrados" :key="modelo.id">
+                <p>{{ modelo.modelo }}</p>
+                <p>{{ modelo.precioDia }}</p>
+            </div>
+        </section>
     </section>
 </template>

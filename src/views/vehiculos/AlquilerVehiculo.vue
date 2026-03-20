@@ -165,7 +165,7 @@ async function alquilarVehiculo() {
                 </div>
 
                 <div class="accionesForm">
-                    <button class="btnPrincipal" @click="alquilarVehiculo">Alquilar</button>
+                    <button class="btnPrincipal" @click.prevent="alquilarVehiculo">Alquilar</button>
                 </div>
             </div>
 

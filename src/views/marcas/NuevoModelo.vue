@@ -4,7 +4,7 @@ import {getMarcas, guardarNuevoModelo} from '../../assets/js/consultas.js';
 import { onBeforeMount, ref } from 'vue';
 
 const datosForm = ref({
-    idModelo:null,
+    idMarca:null,
     modelo:null,
     extraPorModelo:null
 });
@@ -21,7 +21,7 @@ function guardarModelo() {
     guardarNuevoModelo(datoAguardar);
     
     datosForm.value ={
-        idModelo:null,
+        idMarca:null,
         modelo:null,
         extraPorModelo:null
     };
@@ -33,7 +33,7 @@ function guardarModelo() {
         <form action="" method="post" class="formElegante">
             <div class="contenidoForm">
                 <label for="">Marca</label>
-                <select name="" id="" required v-model="datosForm.idModelo">
+                <select name="" id="" required v-model="datosForm.idMarca">
                     <option v-for="(marca, index) in listaMarcas" :key="index" :value="marca.id">{{ marca.nombre }}</option>
                 </select>
             </div>
