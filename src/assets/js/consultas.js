@@ -201,20 +201,16 @@ export async function modeloDeMarcaConcreta(marca) {
 
 
 
-function obtenerDatConcretoVehiculo(elemento, idModelo, listaVehiculos){
-    let dato = null;
-    
-    if(elemento === 'precioDia'){
-        dato = listaVehiculos.find(vehi => vehi.idModelo == idModelo);
-        
-        return dato.precioDia;
-    }else if (elemento === 'puertas'){
-        dato = listaVehiculos.find(vehi => vehi.idModelo == idModelo);
-        return dato.puertas;
-    }else if (elemento === 'sillaInfantil'){
-        dato = listaVehiculos.find(vehi => vehi.idModelo == idModelo);
-        return dato.sillaInfantil;
-    }
+function obtenerDatConcretoVehiculo(elemento, idModelo, listaVehiculos) {
+    const vehiculo = listaVehiculos.find(vehi => vehi.idModelo == idModelo);
+
+    if (!vehiculo) return null;
+
+    if (elemento === 'precioDia') return vehiculo.precioDia;
+    if (elemento === 'puertas') return vehiculo.puertas;
+    if (elemento === 'sillaInfantil') return vehiculo.sillaInfantil;
+
+    return null;
 }
 
 export async function obtenerVehiculosConClientes(marca, modelo) {

@@ -55,7 +55,8 @@ async function nuevoExtra(modeloAcambiar) {
                 </tr>
                 <tr v-for="(modelos, index) in listaModelos" :key="index">
                     <td>{{ modelos.modelo }}</td>
-                    <td>{{ modelos.precioMedioDia }}</td>
+                    <td v-if="!isNaN(modelos.precioMedioDia)  && modelos.precioMedioDia != ''">{{ modelos.precioMedioDia }}</td>
+                    <td v-else>Sin datos</td>
                     <td v-if="modelos.extraPorModelo && modelos.extraPorModelo != 0">{{ modelos.extraPorModelo }}</td>
                     <td v-else><input type="number" name="" id="" @keypress.enter="nuevoExtra(modelos)" v-model="modelos.modificarExtra"></td>
                 </tr>

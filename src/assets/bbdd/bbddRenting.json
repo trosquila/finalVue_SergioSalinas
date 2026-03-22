@@ -85,6 +85,18 @@
       "idMarca": "3",
       "modelo": "serie 2",
       "extraPorModelo": 33
+    },
+    {
+      "idMarca": "3",
+      "modelo": "serie 1",
+      "extraPorModelo": 12,
+      "id": "L5xMv-REMKs"
+    },
+    {
+      "idMarca": "SXL1jncuIOQ",
+      "modelo": "Madza 3",
+      "extraPorModelo": 32,
+      "id": "O5Bjiv7sWos"
     }
   ],
   "vehiculos": [
@@ -227,6 +239,13 @@
       "puertas": 3,
       "sillaInfantil": true,
       "id": "-TOjD4F6dH4"
+    },
+    {
+      "idModelo": "O5Bjiv7sWos",
+      "precioDia": 23,
+      "puertas": 5,
+      "sillaInfantil": true,
+      "id": "2u35EVkEToE"
     }
   ],
   "clientes": [
