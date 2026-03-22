@@ -118,7 +118,7 @@ td{
 
 /* FORMULARIOS */
 
-.formElegante{
+.formulario{
     background-color: white;
     border: 1px solid rgb(220, 220, 220);
     border-radius: 14px;
@@ -195,6 +195,7 @@ td{
     transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
+
 .listaDatos p:hover{
     background-color: rgb(245, 245, 245);
     transform: translateX(2px);
@@ -203,8 +204,7 @@ td{
 .listaDatos span{
     font-weight: 700;
 }
-
-.modelosPanel {
+.modelos-panel {
     margin-top: 24px;
 }
 
@@ -214,10 +214,12 @@ td{
     align-items: center;
     padding: 12px 14px;
     border-bottom: 1px solid rgb(230, 230, 230);
+    transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
 .modeloFila:hover {
     background-color: rgb(245, 245, 245);
+    transform: translateX(2px);
 }
 
 .modeloNombre {
@@ -228,4 +230,46 @@ td{
 .modeloPrecio {
     color: rgb(90, 90, 90);
     font-size: 14px;
+}
+
+.paginaClientes {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.columnaClientes {
+    position: sticky;
+    top: 24px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.columnaDerecha {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.mensajeVacio {
+    color: rgb(160, 160, 160);
+    font-size: 14px;
+    text-align: center;
+    padding: 32px 0;
+    margin: 0;
+}
+
+.filaVehiculo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.filaVehiculo:hover {
+    background-color: rgb(245, 245, 245);
+    transform: translateX(2px);
 }

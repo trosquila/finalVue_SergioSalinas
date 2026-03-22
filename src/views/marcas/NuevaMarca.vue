@@ -23,7 +23,7 @@ function guardarMarca() {
 <template>
     <section class="contenedor">
         <h2 class="tituloSeccion">Nueva marca</h2>
-        <form action="" class="formElegante">
+        <form action="" class="formulario">
             <div class="contenidoForm">
                 <label for="">Nombre de la marca</label>
                 <input type="text" name="nombre" id="" v-model="datosForm.nombre">

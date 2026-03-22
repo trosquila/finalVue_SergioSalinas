@@ -246,6 +246,20 @@
       "puertas": 5,
       "sillaInfantil": true,
       "id": "2u35EVkEToE"
+    },
+    {
+      "idModelo": "3",
+      "precioDia": 23,
+      "puertas": 5,
+      "sillaInfantil": true,
+      "id": "VMKJZMbZ8rg"
+    },
+    {
+      "idModelo": "Eb6kQp5_89k",
+      "precioDia": 3,
+      "puertas": 5,
+      "sillaInfantil": true,
+      "id": "Oq9OWUfLU_E"
     }
   ],
   "clientes": [
@@ -315,6 +329,11 @@
           "idVehiculo": "vpSvC1VMFvY",
           "numDias": 2,
           "fechaInic": "2026-03-28"
+        },
+        {
+          "idVehiculo": "7",
+          "numDias": 3,
+          "fechaInic": "2026-02-24"
         }
       ]
     },
@@ -342,18 +361,6 @@
           "idVehiculo": "f7a8",
           "numDias": 5,
           "fechaInic": ""
-        }
-      ]
-    },
-    {
-      "id": "4",
-      "nombre": "Elena García",
-      "dni": "34567890P",
-      "alquileres": [
-        {
-          "idVehiculo": "4",
-          "numDias": 7,
-          "fechaInic": "08/09/2025"
         }
       ]
     }

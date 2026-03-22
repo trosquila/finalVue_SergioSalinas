@@ -33,7 +33,7 @@ function nuevoVehiculo() {
 <template>
     <section class="contenedor">
         <h2>Nuevo Vehiculo</h2>
-        <form action="" class="formElegante">
+        <form action="" class="formulario">
             <div class="contenidoForm">
                 <label for="">Marca</label>
                 <select v-model="marcaSeleccionada" @change="elegirModelos()">

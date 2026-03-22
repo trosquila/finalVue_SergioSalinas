@@ -134,7 +134,7 @@ async function nuevoVehiculo() {
 
             <div v-show="verFormNuevoVehi">
                 <section>
-                    <form action="" class="formElegante">
+                    <form action="" class="formulario">
                         <div class="contenidoForm">
                             <label for="">Marca</label>
                             <select v-model="marcaSeleccionadaForm" @change="elegirModelosForm()" :disabled="marcaSeleccionada">

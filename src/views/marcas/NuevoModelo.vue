@@ -30,7 +30,7 @@ function guardarModelo() {
 <template>
     <section class="contenedor">
         <h2 class="tituloSeccion">Nuevo modelo</h2>
-        <form action="" method="post" class="formElegante">
+        <form action="" method="post" class="formulario" @submit.prevent="guardarModelo">
             <div class="contenidoForm">
                 <label for="">Marca</label>
                 <select name="" id="" required v-model="datosForm.idMarca">
@@ -46,7 +46,7 @@ function guardarModelo() {
                 <input type="number" name="" id="" v-model="datosForm.extraPorModelo">
             </div>
             <div class="accionesForm">
-                <button class="btnPrincipal" type="submit" @click="guardarModelo()">Guardar Modelo</button>
+                <button class="btnPrincipal" type="submit">Guardar Modelo</button>
             </div>
         </form>
     </section>
